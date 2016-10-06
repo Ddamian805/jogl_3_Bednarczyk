@@ -92,36 +92,17 @@ public class Bednarczyk implements GLEventListener {
 // Tu piszemy kod rysuj¹cy grafikê 3D
         
 
-        gl.glBegin(GL.GL_TRIANGLES);
-        gl.glColor3f(0.0f,0.0f,1.0f);
-        gl.glVertex3f(-1.0f, 1.0f, -6.0f);
-        gl.glVertex3f(-2.0f, -1.0f, -6.0f);
-        gl.glVertex3f(0.0f, -1.0f, -6.0f);
-        gl.glEnd();
-        
-        gl.glBegin(GL.  GL_QUADS);
-        gl.glColor3f(0.0f,1.0f,0.0f);
-        gl.glVertex3f(0.0f, -1.0f, -6.0f);
-        gl.glVertex3f(-2.0f, -1.0f, -6.0f);
-        gl.glVertex3f(-2.0f, -3.0f, -6.0f);
-        gl.glVertex3f(0.0f, -3.0f, -6.0f);
-        gl.glEnd();
-        
-          gl.glBegin(GL.  GL_QUADS);
-        gl.glColor3f(1.0f,0.0f,0.0f);
-        gl.glVertex3f(-0.5f, -1.5f, -5.0f);
-        gl.glVertex3f(-1.0f, -1.5f, -5.0f);
-        gl.glVertex3f(-1.0f, -2.5f, -5.0f);
-        gl.glVertex3f(-0.5f, -2.5f, -5.0f);
-        gl.glEnd();
-        
-        gl.glBegin(GL.  GL_QUADS);
-        gl.glColor3f(0.0f,0.0f,1.0f);
-        gl.glVertex3f(-1.0f, -0.5f, -5.0f);
-        gl.glVertex3f(-1.5f, -0.5f, -5.0f);
-        gl.glVertex3f(-1.5f, -1.5f, -5.0f);
-        gl.glVertex3f(-1.0f, -1.5f, -5.0f);
-        gl.glEnd();
+        float x,y,kat;
+gl.glBegin(GL.GL_TRIANGLE_FAN);
+gl.glVertex3f(0.0f,0.0f,-6.0f); //œrodek
+for(kat = 0.0f; kat < (2.0f*Math.PI);
+kat+=(Math.PI/32.0f))
+{
+x = 1.5f*(float)Math.sin(kat);
+y = 1.5f*(float)Math.cos(kat);
+gl.glVertex3f(x, y, -6.0f); //kolejne punkty
+}
+gl.glEnd();
         
       
         //Wykonanie wszystkich operacji znajduj¹cych siê w buforze
