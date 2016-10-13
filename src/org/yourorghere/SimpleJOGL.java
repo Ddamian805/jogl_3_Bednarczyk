@@ -120,32 +120,25 @@ public class SimpleJOGL implements GLEventListener {
         float x, y, kat;
 
         gl.glBegin(GL.GL_TRIANGLE_FAN);
-        gl.glColor3f(1.f, 0.5f, 1.0f);
+        gl.glColor3f(1.f, 0.5f, 0.25f);
         gl.glVertex3f(0.0f, 0.0f, -2.0f); //?rodek
         for (kat = 0.0f; kat < (2.0f * Math.PI);
                 kat += (Math.PI / 32.0f)) {
             x = 1.5f * (float) Math.sin(kat);
             y = 1.5f * (float) Math.cos(kat);
-            gl.glVertex3f(x, y, -2.0f); //kolejne punkty
+            gl.glVertex3f(x, y, 1.0f); //kolejne punkty
         }
         gl.glEnd();
         gl.glBegin(GL.GL_TRIANGLE_FAN);
+        gl.glColor3f(1.f, 1.0f, 0.25f);
         gl.glVertex3f(0.0f, 0.0f, 1.0f); //?rodek
         for (kat = (float) (2.0f * Math.PI); kat > 0.0f;
                 kat -= (Math.PI / 32.0f)) {
             x = 1.5f * (float) Math.sin(kat);
             y = 1.5f * (float) Math.cos(kat);
             gl.glVertex3f(x, y, 1.0f); //kolejne punkty
-        }
-        gl.glEnd();
-        gl.glBegin(GL.GL_QUAD_STRIP);
-        gl.glColor3f(0.25f, 1.0f, 1.0f);
-        for (kat = 0.0f; kat < (2.0f * Math.PI);
-                kat += (Math.PI / 32.0f)) {
-            x = 1.5f * (float) Math.sin(kat);
-            y = 1.5f * (float) Math.cos(kat);
-            gl.glVertex3f(x, y, -2.0f); //kolejne punkty
-            gl.glVertex3f(x, y, 1.0f);
+        
+       
         }
         gl.glEnd();
 
