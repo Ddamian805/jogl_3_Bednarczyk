@@ -255,53 +255,38 @@ public class Bedna implements GLEventListener {
         gl.glLightfv(GL.GL_LIGHT0, GL.GL_DIFFUSE, diffuseLight, 0); //?wiat?o rozproszone
         gl.glLightfv(GL.GL_LIGHT0, GL.GL_SPECULAR, specular, 0); //?wiat?o odbite
 
-        gl.glBegin(GL.GL_QUADS);
-        gl.glBegin(GL.GL_QUADS);
+        gl.glBegin(GL.GL_TRIANGLES);
 //?ciana przednia
-        gl.glColor3f(1.0f, 1.0f, 1.0f);
-        gl.glNormal3f(0.0f, 0.0f, 1.0f);
+        gl.glColor3f(1.0f, 0.0f, 0.0f);
         gl.glVertex3f(-1.0f, -1.0f, 1.0f);
         gl.glVertex3f(1.0f, -1.0f, 1.0f);
-        gl.glVertex3f(1.0f, 1.0f, 1.0f);
-        gl.glVertex3f(-1.0f, 1.0f, 1.0f);
+        gl.glVertex3f(0.0f, 1.0f, 0.0f);
+
 //sciana tylnia
-        gl.glColor3f(0.0f, 1.0f, 1.0f);
-        gl.glNormal3f(0.0f, 0.0f, -1.0f);
-        gl.glVertex3f(-1.0f, 1.0f, -1.0f);
-        gl.glVertex3f(1.0f, 1.0f, -1.0f);
-        gl.glVertex3f(1.0f, -1.0f, -1.0f);
-        gl.glVertex3f(-1.0f, -1.0f, -1.0f);
-//?ciana lewa
-        gl.glColor3f(1.0f, 1.0f, 0.0f);
-        gl.glNormal3f(-1.0f, 0.0f, 0.0f);
-        gl.glVertex3f(-1.0f, -1.0f, -1.0f);
-        gl.glVertex3f(-1.0f, -1.0f, 1.0f);
-        gl.glVertex3f(-1.0f, 1.0f, 1.0f);
-        gl.glVertex3f(-1.0f, 1.0f, -1.0f);
-//?ciana prawa
-        gl.glColor3f(1.0f, 0.0f, 1.0f);
-        gl.glNormal3f(1.0f, 0.0f, 0.0f);
-        gl.glVertex3f(1.0f, 1.0f, -1.0f);
-        gl.glVertex3f(1.0f, 1.0f, 1.0f);
-        gl.glVertex3f(1.0f, -1.0f, 1.0f);
-        gl.glVertex3f(1.0f, -1.0f, -1.0f);
-//?ciana dolna
         gl.glColor3f(0.0f, 1.0f, 0.0f);
-        gl.glNormal3f(0.0f, -1.0f, 0.0f);
+        gl.glVertex3f(-1.0f, -1.0f, -1.0f);
+        gl.glVertex3f(0.0f, 1.0f, 0.0f);
+        gl.glVertex3f(1.0f, -1.0f, -1.0f);
+//?ciana lewa
+        gl.glColor3f(0.0f, 0.0f, 1.0f);
+        gl.glVertex3f(-1.0f, -1.0f, -1.0f);
+        gl.glVertex3f(-1.0f, -1.0f, 1.0f);
+        gl.glVertex3f(0.0f, 1.0f, 0.0f);
+        //?ciana prawa
+        gl.glColor3f(1.0f, 1.0f, 0.0f);
+        gl.glVertex3f(0.0f, 1.0f, 0.0f);
+        gl.glVertex3f(1.0f, -1.0f, 1.0f);
+        gl.glVertex3f(1.0f, -1.0f, -1.0f);
+
+        gl.glBegin(GL.GL_QUADS);
+//?ciana dolna
+        gl.glColor3f(1.0f, 0.0f, 1.0f);
         gl.glVertex3f(-1.0f, -1.0f, 1.0f);
         gl.glVertex3f(-1.0f, -1.0f, -1.0f);
         gl.glVertex3f(1.0f, -1.0f, -1.0f);
         gl.glVertex3f(1.0f, -1.0f, 1.0f);
-//?ciana górna
-        gl.glColor3f(0.0f, 0.0f, 1.0f);
-        gl.glNormal3f(0.0f, 1.0f, 0.0f);
-        gl.glVertex3f(1.0f, 1.0f, -1.0f);
-        gl.glVertex3f(-1.0f, 1.0f, -1.0f);
-        gl.glVertex3f(-1.0f, 1.0f, 1.0f);
-        gl.glVertex3f(1.0f, 1.0f, 1.0f);
         gl.glEnd();
 
-        //Wykonanie wszystkich operacji znajduj?cych si? w buforze
         gl.glFlush();
     }
 
