@@ -21,6 +21,7 @@ public class Bedna implements GLEventListener {
     public static float diffuseLight[] = {0.7f, 0.7f, 0.7f, 1.0f};//?wiat?o rozproszone
     public static float specular[] = {1.0f, 1.0f, 1.0f, 1.0f}; //?wiat?o odbite
     public static float lightPos[] = {0.0f, 150.0f, 150.0f, 1.0f};//pozycja ?wiat?a
+    static float licznik = 0.1f;
 
     public static void main(String[] args) {
         Frame frame = new Frame("Simple JOGL Application");
@@ -65,60 +66,58 @@ public class Bedna implements GLEventListener {
                 {
                     if (e.getKeyCode() == KeyEvent.VK_3) {
                         koparka.kond += (1.5f);
-                         if (koparka.kond  > 40.0f ){
+                        if (koparka.kond > 40.0f) {
                             koparka.kond = 40.0f;
                         }
-                        
+
                     }
 
                     if (e.getKeyCode() == KeyEvent.VK_4) {
                         koparka.kond -= (1.5f);
-                         if (koparka.kond  < -40.0f ){
+                        if (koparka.kond < -40.0f) {
                             koparka.kond = -40.0f;
                         }
                     }
 
                     if (e.getKeyCode() == KeyEvent.VK_5) {
                         koparka.kond2 += (1.5f);
-                         if (koparka.kond2  > 10.0f ){
+                        if (koparka.kond2 > 10.0f) {
                             koparka.kond2 = 10.0f;
                         }
                     }
 
                     if (e.getKeyCode() == KeyEvent.VK_6) {
                         koparka.kond2 -= (1.5f);
-                         if (koparka.kond2  < -30.0f ){
+                        if (koparka.kond2 < -30.0f) {
                             koparka.kond2 = -30.0f;
                         }
                     }
 
                     if (e.getKeyCode() == KeyEvent.VK_7) {
                         koparka.kond3 += (1.5f);
-                         if (koparka.kond3  > 55.0f ){
+                        if (koparka.kond3 > 55.0f) {
                             koparka.kond3 = 55.0f;
                         }
                     }
                     if (e.getKeyCode() == KeyEvent.VK_8) {
                         koparka.kond3 -= (1.5f);
-                         if (koparka.kond3  < -55.0f ){
+                        if (koparka.kond3 < -55.0f) {
                             koparka.kond3 = -55.0f;
                         }
                     }
                     if (e.getKeyCode() == KeyEvent.VK_1) {
                         koparka.kond4 += (1.5f);
-                         if (koparka.kond4  > 60.0f ){
-                            koparka.kond4 =60.0f;
+                        if (koparka.kond4 > 60.0f) {
+                            koparka.kond4 = 60.0f;
                         }
-                      
+
                     }
                     if (e.getKeyCode() == KeyEvent.VK_2) {
-                        koparka.kond4 -= (1.5f); 
-                        if (koparka.kond4  < -60.0f ){
+                        koparka.kond4 -= (1.5f);
+                        if (koparka.kond4 < -60.0f) {
                             koparka.kond4 = -60.0f;
                         }
                     }
-                    
-                    
 
                 }
                 if (e.getKeyChar() == 'q') {
@@ -232,8 +231,24 @@ public class Bedna implements GLEventListener {
         gl.glEnable(GL.GL_LIGHT0); //uaktywnienie ?ród?a ?wiat?a nr. 0
         gl.glEnable(GL.GL_COLOR_MATERIAL);
         koparka.Rysuj(gl);
-       
+        koparka.kond4 += licznik;
+        if (koparka.kond4 > 60.0f) {
+            licznik *= (-1);
+        }
+        if (koparka.kond4 < -60.0f) {
 
+            licznik *= (-1);
+        }
+
+        koparka.kond3 += licznik;
+        if (koparka.kond3 > 55.0f) {
+            licznik *= (-1);
+        }
+        if (koparka.kond3 < -55.0f) {
+
+            licznik *= (-1);
+            
+        }
         // drzewko(gl);
         // for(int i=0; i<10 ;i++)
         // {
@@ -367,7 +382,7 @@ public class Bedna implements GLEventListener {
         gl.glTranslatef(0.0f, 0.0f, 1.0f);
         walec(gl);
         gl.glPopMatrix();
-        
+
     }
 
     void walec(GL gl) {
