@@ -28,7 +28,7 @@ public class Bedna implements GLEventListener {
 
         canvas.addGLEventListener(new Bedna());
         frame.add(canvas);
-        frame.setSize(640, 480);
+        frame.setSize(800, 800);
         final Animator animator = new Animator(canvas);
         frame.addWindowListener(new WindowAdapter() {
 
@@ -62,6 +62,65 @@ public class Bedna implements GLEventListener {
                     yrot -= 1.0f;
                 }
 
+                {
+                    if (e.getKeyCode() == KeyEvent.VK_3) {
+                        koparka.kond += (1.5f);
+                         if (koparka.kond  > 40.0f ){
+                            koparka.kond = 40.0f;
+                        }
+                        
+                    }
+
+                    if (e.getKeyCode() == KeyEvent.VK_4) {
+                        koparka.kond -= (1.5f);
+                         if (koparka.kond  < -40.0f ){
+                            koparka.kond = -40.0f;
+                        }
+                    }
+
+                    if (e.getKeyCode() == KeyEvent.VK_5) {
+                        koparka.kond2 += (1.5f);
+                         if (koparka.kond2  > 10.0f ){
+                            koparka.kond2 = 10.0f;
+                        }
+                    }
+
+                    if (e.getKeyCode() == KeyEvent.VK_6) {
+                        koparka.kond2 -= (1.5f);
+                         if (koparka.kond2  < -30.0f ){
+                            koparka.kond2 = -30.0f;
+                        }
+                    }
+
+                    if (e.getKeyCode() == KeyEvent.VK_7) {
+                        koparka.kond3 += (1.5f);
+                         if (koparka.kond3  > 55.0f ){
+                            koparka.kond3 = 55.0f;
+                        }
+                    }
+                    if (e.getKeyCode() == KeyEvent.VK_8) {
+                        koparka.kond3 -= (1.5f);
+                         if (koparka.kond3  < -55.0f ){
+                            koparka.kond3 = -55.0f;
+                        }
+                    }
+                    if (e.getKeyCode() == KeyEvent.VK_1) {
+                        koparka.kond4 += (1.5f);
+                         if (koparka.kond4  > 60.0f ){
+                            koparka.kond4 =60.0f;
+                        }
+                      
+                    }
+                    if (e.getKeyCode() == KeyEvent.VK_2) {
+                        koparka.kond4 -= (1.5f); 
+                        if (koparka.kond4  < -60.0f ){
+                            koparka.kond4 = -60.0f;
+                        }
+                    }
+                    
+                    
+
+                }
                 if (e.getKeyChar() == 'q') {
                     ambientLight = new float[]{ambientLight[0] - 0.1f, ambientLight[1] - 0.1f, ambientLight[2] - 0.1f, ambientLight[3] - 0.01f};
                 }
@@ -148,7 +207,7 @@ public class Bedna implements GLEventListener {
         gl.glViewport(0, 0, width, height);
         gl.glMatrixMode(GL.GL_PROJECTION);
         gl.glLoadIdentity();
-        glu.gluPerspective(45.0f, h, 1.0, 20.0);
+        glu.gluPerspective(45.0f, h, 1.0, 200.0);
         gl.glMatrixMode(GL.GL_MODELVIEW);
         gl.glLoadIdentity();
     }
@@ -173,7 +232,9 @@ public class Bedna implements GLEventListener {
         gl.glEnable(GL.GL_LIGHT0); //uaktywnienie ?ród?a ?wiat?a nr. 0
         gl.glEnable(GL.GL_COLOR_MATERIAL);
         koparka.Rysuj(gl);
-       // drzewko(gl);
+       
+
+        // drzewko(gl);
         // for(int i=0; i<10 ;i++)
         // {
         //   drzewko(gl);
@@ -306,6 +367,7 @@ public class Bedna implements GLEventListener {
         gl.glTranslatef(0.0f, 0.0f, 1.0f);
         walec(gl);
         gl.glPopMatrix();
+        
     }
 
     void walec(GL gl) {
@@ -368,7 +430,6 @@ public class Bedna implements GLEventListener {
         gl.glEnd();
 
     }
-    
 
     public void displayChanged(GLAutoDrawable drawable, boolean modeChanged, boolean deviceChanged) {
     }
