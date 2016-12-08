@@ -77,6 +77,7 @@ public class Bedna implements GLEventListener {
             }
         });
         frame.addKeyListener(new KeyListener() {
+            
 
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
@@ -91,6 +92,19 @@ public class Bedna implements GLEventListener {
                 if (e.getKeyCode() == KeyEvent.VK_LEFT) {
                     yrot -= 1.0f;
                 }
+                if (e.getKeyChar() == 'j' && scena.x < 80) {
+                    scena.x += 1.0f;
+                }
+                if (e.getKeyChar() == 'l' && scena.x > -80) {
+                    scena.x -= 1.0f;
+                }
+                if (e.getKeyChar() == 'i' && scena.z < 70) {
+                    scena.z += 1.0f;
+                }
+                if (e.getKeyChar() == 'k' && scena.z > -75) {
+                    scena.z -= 1.0f;
+                }
+
                 if (e.getKeyChar() == 'q') {
                     ambientLight = new float[]{ambientLight[0] + 0.1f, ambientLight[0] + 0.1f, ambientLight[0] + 0.1f, 1.0f};
                 }
@@ -252,7 +266,8 @@ public class Bedna implements GLEventListener {
         gl.glMatrixMode(GL.GL_PROJECTION);
         gl.glLoadIdentity();
         glu.gluPerspective(100.0f, h, 1.0, 200.0);
-       // gl.glViewport(200, 200, 100, 100);
+        
+        // gl.glViewport(200, 200, 100, 100);
 
         /*     float ilor;
          if(width<=height)
@@ -666,7 +681,7 @@ public class Bedna implements GLEventListener {
 
          gl.glEnd();
          }*/
- //Wykonanie wszystkich operacji znajduj¹cych siê w buforze
+        //Wykonanie wszystkich operacji znajduj¹cych siê w buforze
         /*choinki\/
          gl.glRotatef(90f, 1, 0, 0);
          for(int iiii=0;iiii<10;iiii++)
@@ -711,46 +726,42 @@ public class Bedna implements GLEventListener {
          gl.glPopMatrix();
          gl.glEnd();
          }*/
-
-        /* koparka\/
-         gl.glScalef(2,2,2);
-         koparka.Rysuj(gl);
-
-         if(koparka.trzy<-70.0f&&i==0)
-         {     
-     
-         i=1;
-         }
-         if(koparka.trzy>=23.0f&&i==1)
-         {     
-     
-         i=0;
-         }
-         if(koparka.jeden>-15.0f&&i==0)
-         {
-         koparka.jeden-=0.1f;
-    
-         }
-         if(koparka.jeden<=-5.0f&&i==0&&koparka.dwa>-70.0f)
-         {
-         koparka.dwa-=0.1f;
-         }
-         if(koparka.dwa<=-55.0f&&i==0&&koparka.trzy>-70.0f)
-         {
-         koparka.trzy-=0.1f;
-         System.out.println(koparka.trzy);
-         }
-
-         if(koparka.jeden<65.0f&&i==1)
-         {
-         koparka.jeden+=0.1f;
-    
-         }
-         if(koparka.jeden>40&&i==1&&koparka.trzy<25.0f)
-         koparka.trzy+=0.1f;
-         */
+        //  koparka\/
         scena.Rysuj(gl, t1, t3, t2);
         gl.glFlush();
+        gl.glTranslatef(0, -50, 1);
+
+        gl.glScalef(2, 2, 2);
+        koparka.Rysuj(gl);
+
+        if (koparka.trzy < -70.0f && i == 0) {
+
+            i = 1;
+        }
+        if (koparka.trzy >= 23.0f && i == 1) {
+
+            i = 0;
+        }
+        if (koparka.jeden > -15.0f && i == 0) {
+            koparka.jeden -= 0.1f;
+
+        }
+        if (koparka.jeden <= -5.0f && i == 0 && koparka.dwa > -70.0f) {
+            koparka.dwa -= 0.1f;
+        }
+        if (koparka.dwa <= -55.0f && i == 0 && koparka.trzy > -70.0f) {
+            koparka.trzy -= 0.1f;
+            System.out.println(koparka.trzy);
+        }
+
+        if (koparka.jeden < 65.0f && i == 1) {
+            koparka.jeden += 0.1f;
+
+        }
+        if (koparka.jeden > 40 && i == 1 && koparka.trzy < 25.0f) {
+            koparka.trzy += 0.1f;
+        }
+
     }
 
     public void displayChanged(GLAutoDrawable drawable, boolean modeChanged, boolean deviceChanged) {
@@ -865,4 +876,5 @@ public class Bedna implements GLEventListener {
 
         return norm;
     }
+
 }
